@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 195 100% 50%;
+    --primary-foreground: 240 10% 4%;
+
+    --secondary: 260 100% 65%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 10% 12%;
+    --muted-foreground: 240 5% 70%;
+
+    --accent: 320 100% 60%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
+    --ring: 195 100% 50%;
+
+    --radius: 1.25rem;
+
+    --neon: 195 100% 50%;
+    --neon-purple: 260 100% 65%;
+    --neon-pink: 320 100% 60%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(195 100% 50%), hsl(260 100% 65%));
+    --gradient-neon: linear-gradient(135deg, hsl(260 100% 65%), hsl(320 100% 60%));
+    --gradient-dark: linear-gradient(180deg, rgba(13, 13, 18, 0) 0%, rgba(13, 13, 18, 1) 100%);
+    
+    --shadow-card: 0 8px 32px -4px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 30px hsl(195 100% 50% / 0.3);
+    --shadow-neon-purple: 0 0 30px hsl(260 100% 65% / 0.3);
+
+    --sidebar-background: 240 10% 6%;
+    --sidebar-foreground: 240 5% 70%;
+    --sidebar-primary: 195 100% 50%;
+    --sidebar-primary-foreground: 240 10% 4%;
+    --sidebar-accent: 240 10% 12%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 10% 15%;
+    --sidebar-ring: 195 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-primary/20 selection:text-primary;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(195, 100%, 50%, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(260, 100%, 65%, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(320, 100%, 60%, 0.05) 0px, transparent 50%);
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-black/40 backdrop-blur-xl border border-white/10;
+  }
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary/30 transition-all duration-300;
+  }
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .gradient-neon {
+    background: var(--gradient-neon);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+    animation: gradient-x 5s ease infinite;
+    background-size: 200% 200%;
+  }
+  .text-neon {
+    text-shadow: 0 0 10px hsla(var(--primary), 0.5), 0 0 20px hsla(var(--primary), 0.3);
+  }
+  .neon-border {
+    border: 1px solid hsla(var(--primary), 0.4);
+    box-shadow: 0 0 15px hsla(var(--primary), 0.2), inset 0 0 15px hsla(var(--primary), 0.05);
+  }
+  .neon-border-purple {
+    border: 1px solid hsla(var(--neon-purple), 0.4);
+    box-shadow: 0 0 15px hsla(var(--neon-purple), 0.2), inset 0 0 15px hsla(var(--neon-purple), 0.05);
+  }
+}
